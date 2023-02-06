@@ -1,0 +1,35 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "laptop",
+      "description": "laptop gamer",
+      "price": 5000,
+      "inStock": true
+    },
+
+    {
+      "id": 2,
+      "name": "Monitor",
+      "description": "Monitor gamer",
+      "price": 4000,
+      "inStock": true
+    },
+
+    {
+      "id": 3,
+      "name": "Teclado",
+      "description": "Teclado gamer",
+      "price": 2000,
+      "inStock": true
+    },
+
+    {
+      "id": 4,
+      "name": "Mouse",
+      "description": "Mouse gamer",
+      "price": 1000,
+      "inStock": true
+    }
+  ]
+}
