@@ -1,6 +1,45 @@
+import {
+  useMutation,
+  useQueryClient
+} from '@tanstack/react-query';
+import { createProduct } from '../api/productsAPI';
+
+
+
+
+
 const ProductForm = () => {
+  //refrescar la pagina al agregar un elemento
+
+  const queryClient = useQueryClient();
+
+  //agregar un producto
+  const addProductMutation = useMutation({
+    mutationFn: createProduct,
+    onSuccess: () => {
+      console.log('product added');
+      queryClient.invalidateQueries('products');
+    }
+  });
+  
+
+  
+  
+
+  //tomar los datos de un formulario
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const product = Object.fromEntries(formData);
+
+    addProductMutation.mutate({
+      ...product,
+      inStock: true
+    });
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label htmlFor=''>Name</label>
       <input type='text' id='name' name='name' />
 
